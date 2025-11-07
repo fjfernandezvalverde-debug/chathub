@@ -1,8 +1,8 @@
 // 🔧 MODIFICA ESTA LÍNEA CON TU CLIENT ID DE KICK
-const clientId = 'TU_CLIENT_ID';
+const clientId = '01K9EX32GXPW21PPGP4PB07TGW';
 
 // 🔧 OPCIONAL: Si distribuyes como ZIP, puedes usar una ruta relativa
-const redirectUri = window.location.origin + '/callback.html';
+const redirectUri = 'https://fjfernandezvalverde-debug.github.io/chathub//callback.html';
 
 const scope = 'chat:read user:read stream:read';
 
