@@ -12,16 +12,22 @@ if (!token) {
     headers: { Authorization: `Bearer ${token}` }
   })
     .then(res => {
+      console.log('Respuesta de Kick:', res);
       if (!res.ok) {
         throw new Error(`Error HTTP: ${res.status}`);
       }
       return res.json();
     })
     .then(data => {
-      chatEl.innerHTML = `
-        <p><strong>${data.username}</strong> está en vivo: ${data.livestream?.is_live ? '✅ Sí' : '❌ No'}</p>
-        <p>ID del canal: ${data.id}</p>
-      `;
+      console.log('Datos del canal:', data);
+      if (!data.username) {
+        chatEl.innerHTML = '<p⚠️ No se pudo obtener el nombre del canal.</p>';
+      } else {
+        chatEl.innerHTML = `
+          <p><strong>${data.username}</strong> está en vivo: ${data.livestream?.is_live ? '✅ Sí' : '❌ No'}</p>
+          <p>ID del canal: ${data.id}</p>
+        `;
+      }
     })
     .catch(err => {
       statusEl.textContent = '⚠️ Error al conectar con Kick';
