@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>Kick Callback</title></head>
+<body>
+  <script>
+    const hash = window.location.hash;
+    const token = new URLSearchParams(hash.slice(1)).get('access_token');
+    if (token) {
+      window.localStorage.setItem('kick_token', token);
+    }
+    window.close();
+  </script>
+</body>
+</html>
